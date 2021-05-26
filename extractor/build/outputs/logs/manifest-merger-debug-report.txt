@@ -1,0 +1,25 @@
+-- Merging decision tree log ---
+manifest
+ADDED from E:\GQU\QG\git\Player\extractor\src\main\AndroidManifest.xml:17:1-62
+INJECTED from E:\GQU\QG\git\Player\extractor\src\main\AndroidManifest.xml:17:1-62
+INJECTED from E:\GQU\QG\git\Player\extractor\src\main\AndroidManifest.xml:17:1-62
+	package
+		ADDED from E:\GQU\QG\git\Player\extractor\src\main\AndroidManifest.xml:17:11-60
+		INJECTED from E:\GQU\QG\git\Player\extractor\src\main\AndroidManifest.xml
+		INJECTED from E:\GQU\QG\git\Player\extractor\src\main\AndroidManifest.xml
+	xmlns:android
+		ADDED from E:\GQU\QG\git\Player\extractor\src\main\AndroidManifest.xml:17:1-62
+uses-sdk
+INJECTED from E:\GQU\QG\git\Player\extractor\src\main\AndroidManifest.xml reason: use-sdk injection requested
+INJECTED from E:\GQU\QG\git\Player\extractor\src\main\AndroidManifest.xml
+INJECTED from E:\GQU\QG\git\Player\extractor\src\main\AndroidManifest.xml
+INJECTED from E:\GQU\QG\git\Player\extractor\src\main\AndroidManifest.xml
+INJECTED from E:\GQU\QG\git\Player\extractor\src\main\AndroidManifest.xml
+	android:targetSdkVersion
+		INJECTED from E:\GQU\QG\git\Player\extractor\src\main\AndroidManifest.xml
+		ADDED from E:\GQU\QG\git\Player\extractor\src\main\AndroidManifest.xml
+		INJECTED from E:\GQU\QG\git\Player\extractor\src\main\AndroidManifest.xml
+	android:minSdkVersion
+		INJECTED from E:\GQU\QG\git\Player\extractor\src\main\AndroidManifest.xml
+		ADDED from E:\GQU\QG\git\Player\extractor\src\main\AndroidManifest.xml
+		INJECTED from E:\GQU\QG\git\Player\extractor\src\main\AndroidManifest.xml

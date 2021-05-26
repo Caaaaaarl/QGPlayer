@@ -1,0 +1,33 @@
+-- Merging decision tree log ---
+manifest
+ADDED from E:\GQU\QG\git\Player\ui\src\main\AndroidManifest.xml:2:1-11:12
+INJECTED from E:\GQU\QG\git\Player\ui\src\main\AndroidManifest.xml:2:1-11:12
+INJECTED from E:\GQU\QG\git\Player\ui\src\main\AndroidManifest.xml:2:1-11:12
+	package
+		ADDED from E:\GQU\QG\git\Player\ui\src\main\AndroidManifest.xml:3:5-47
+		INJECTED from E:\GQU\QG\git\Player\ui\src\main\AndroidManifest.xml
+		INJECTED from E:\GQU\QG\git\Player\ui\src\main\AndroidManifest.xml
+	xmlns:android
+		ADDED from E:\GQU\QG\git\Player\ui\src\main\AndroidManifest.xml:2:11-69
+application
+ADDED from E:\GQU\QG\git\Player\ui\src\main\AndroidManifest.xml:5:5-9:19
+activity#com.google.android.exoplayer2.ui.LandScapeActivity
+ADDED from E:\GQU\QG\git\Player\ui\src\main\AndroidManifest.xml:6:9-8:25
+	android:theme
+		ADDED from E:\GQU\QG\git\Player\ui\src\main\AndroidManifest.xml:7:13-71
+	android:name
+		ADDED from E:\GQU\QG\git\Player\ui\src\main\AndroidManifest.xml:6:19-52
+uses-sdk
+INJECTED from E:\GQU\QG\git\Player\ui\src\main\AndroidManifest.xml reason: use-sdk injection requested
+INJECTED from E:\GQU\QG\git\Player\ui\src\main\AndroidManifest.xml
+INJECTED from E:\GQU\QG\git\Player\ui\src\main\AndroidManifest.xml
+INJECTED from E:\GQU\QG\git\Player\ui\src\main\AndroidManifest.xml
+INJECTED from E:\GQU\QG\git\Player\ui\src\main\AndroidManifest.xml
+	android:targetSdkVersion
+		INJECTED from E:\GQU\QG\git\Player\ui\src\main\AndroidManifest.xml
+		ADDED from E:\GQU\QG\git\Player\ui\src\main\AndroidManifest.xml
+		INJECTED from E:\GQU\QG\git\Player\ui\src\main\AndroidManifest.xml
+	android:minSdkVersion
+		INJECTED from E:\GQU\QG\git\Player\ui\src\main\AndroidManifest.xml
+		ADDED from E:\GQU\QG\git\Player\ui\src\main\AndroidManifest.xml
+		INJECTED from E:\GQU\QG\git\Player\ui\src\main\AndroidManifest.xml
