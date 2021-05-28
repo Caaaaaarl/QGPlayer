@@ -1783,4 +1783,11 @@ public class PlayerView extends FrameLayout implements AdViewProvider {
     controller.player.pause();
   }
 
+  public void resume(){
+    long l = QGSharedpreferences.get("temp_positon",0l);
+    if (l != 0){
+      controller.player.seekTo(QGSharedpreferences.get("temp_positon",0l));
+    }
+  }
+
 }

@@ -6,6 +6,8 @@ import android.os.Bundle;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
+import com.google.android.exoplayer2.QGSharedpreferences;
+
 import org.greenrobot.eventbus.EventBus;
 import org.greenrobot.eventbus.Subscribe;
 import org.greenrobot.eventbus.ThreadMode;
@@ -30,6 +32,7 @@ public class BasePlayerFragment extends Fragment {
     @Override
     public void onDestroy() {
         super.onDestroy();
+        QGSharedpreferences.save("temp_positon",0l);
         EventBus.getDefault().unregister(this);
     }
 }
