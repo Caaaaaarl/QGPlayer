@@ -2,13 +2,13 @@ package com.google.android.exoplayer2.ui;
 
 import com.google.android.exoplayer2.Player;
 
-public class HSQBean {
+public class QGBean {
 
     String tag;
     long position;
     Player player;
 
-    public HSQBean(String tag, long position, Player player) {
+    public QGBean(String tag, long position, Player player) {
         this.tag = tag;
         this.position = position;
         this.player = player;

@@ -19,7 +19,7 @@ public class BasePlayerActivity extends AppCompatActivity {
     }
 
     @Subscribe(threadMode = ThreadMode.MAIN)
-    public void onMessageEvent(HSQBean bean) {
+    public void onMessageEvent(QGBean bean) {
         if ("full".equals(bean.tag)){
             Intent intent = new Intent(getApplicationContext(), LandScapeActivity.class);
             intent.putExtra("current_position",bean.position);

@@ -48,13 +48,14 @@ public class LandScapeActivity extends Activity {
                 token,
                 applicationName);
 
+        playerView.prepare();
         playerView.seekTo(currentPosition);
-        playerView.play();
     }
 
     @Subscribe(threadMode = ThreadMode.MAIN)
-    public void onMessageEvent(HSQBean bean) {
+    public void onMessageEvent(QGBean bean) {
         if ("full_out".equals(bean.tag)){
+            playerView.stopAndRelease();
             QGSharedpreferences.save("temp_positon",playerView.getCurrent());
             finish();
         }
@@ -63,6 +64,7 @@ public class LandScapeActivity extends Activity {
     @Override
     protected void onDestroy() {
         super.onDestroy();
+        playerView.stopAndRelease();
         EventBus.getDefault().unregister(this);
     }
 }

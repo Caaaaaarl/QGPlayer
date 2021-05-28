@@ -1422,12 +1422,15 @@ public class PlayerControlView extends FrameLayout {
         controlDispatcher.dispatchSetShuffleModeEnabled(player, !player.getShuffleModeEnabled());
       }else if (fullscreenButton == view) {
         //全屏操作
-        EventBus.getDefault().post(new HSQBean("full",player.getCurrentPosition(),player));
+        isBack = true;
         player.pause();
+        EventBus.getDefault().post(new QGBean("full",player.getCurrentPosition(),player));
       } else if (exitFullscreenButton == view) {
         //退出全屏
-        EventBus.getDefault().post(new HSQBean("full_out",0,player));
+        EventBus.getDefault().post(new QGBean("full_out",0,player));
       }
     }
   }
+
+  public boolean isBack = false;
 }

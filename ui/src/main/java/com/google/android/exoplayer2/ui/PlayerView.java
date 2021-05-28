@@ -61,9 +61,12 @@ import com.google.android.exoplayer2.QGSharedpreferences;
 import com.google.android.exoplayer2.SimpleExoPlayer;
 import com.google.android.exoplayer2.Timeline;
 import com.google.android.exoplayer2.Timeline.Period;
+import com.google.android.exoplayer2.analytics.AnalyticsListener;
 import com.google.android.exoplayer2.metadata.Metadata;
 import com.google.android.exoplayer2.metadata.flac.PictureFrame;
 import com.google.android.exoplayer2.metadata.id3.ApicFrame;
+import com.google.android.exoplayer2.source.LoadEventInfo;
+import com.google.android.exoplayer2.source.MediaLoadData;
 import com.google.android.exoplayer2.source.MediaSource;
 import com.google.android.exoplayer2.source.ProgressiveMediaSource;
 import com.google.android.exoplayer2.source.TrackGroupArray;
@@ -76,11 +79,14 @@ import com.google.android.exoplayer2.upstream.DataSource;
 import com.google.android.exoplayer2.upstream.DefaultDataSourceFactory;
 import com.google.android.exoplayer2.util.Assertions;
 import com.google.android.exoplayer2.util.ErrorMessageProvider;
+import com.google.android.exoplayer2.util.Log;
 import com.google.android.exoplayer2.util.RepeatModeUtil;
 import com.google.android.exoplayer2.util.Util;
 import com.google.android.exoplayer2.video.VideoDecoderGLSurfaceView;
 import com.google.android.exoplayer2.video.spherical.SphericalGLSurfaceView;
 import com.google.common.collect.ImmutableList;
+
+import java.io.IOException;
 import java.lang.annotation.Documented;
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
@@ -568,6 +574,35 @@ public class PlayerView extends FrameLayout implements AdViewProvider {
 
     SimpleExoPlayer player = new SimpleExoPlayer.Builder(activity.getApplicationContext()).build();
 
+    player.addAnalyticsListener(new AnalyticsListener() {
+
+
+      @Override
+      public void onSeekStarted(EventTime eventTime) {
+        Log.d("loadinging","onSeekStarted" + eventTime.timeline);
+        player.play();
+      }
+
+      @Override
+      public void onSeekProcessed(EventTime eventTime) {
+        Log.d("loadinging", "onSeekProcessed" + eventTime.timeline);
+      }
+
+      @Override
+      public void onLoadStarted(EventTime eventTime, LoadEventInfo loadEventInfo, MediaLoadData mediaLoadData) {
+        Log.d("loadinging", "onLoadStarted");
+        if (!controller.isBack){
+          player.play();
+        }
+      }
+
+      @Override
+      public void onLoadCompleted(EventTime eventTime, LoadEventInfo loadEventInfo, MediaLoadData mediaLoadData) {
+        Log.d("loadinging", "onLoadCompleted");
+//        player.play();
+      }
+    });
+
     DataSource.Factory factory = new DefaultDataSourceFactory(
             activity.getApplicationContext(),
             Util.getUserAgent(activity.getApplicationContext(), applicationName)
@@ -627,9 +662,6 @@ public class PlayerView extends FrameLayout implements AdViewProvider {
     } else {
       hideController();
     }
-
-    player.prepare();
-
   }
 
 
@@ -1715,7 +1747,6 @@ public class PlayerView extends FrameLayout implements AdViewProvider {
     }
   }
 
-
   public void seekTo(long position){
     controller.player.seekTo(position);
   }
@@ -1725,25 +1756,31 @@ public class PlayerView extends FrameLayout implements AdViewProvider {
   }
 
 
+  public void stopAndRelease(){
+    controller.player.stop();
+    controller.player.release();
+  }
+
   public void play(){
     controller.player.play();
+    controller.player.addListener(new Player.EventListener() {
+    });
   }
 
   public void pause(){
     controller.player.pause();
   }
 
+  public void prepare(){
+    controller.player.prepare();
+  }
+
   public void reStart(){
     controller.player.seekTo(QGSharedpreferences.get("temp_positon",0l));
-
-    controller.player.play();
   }
   public void onPauseAction(){
     QGSharedpreferences.save("temp_positon",getCurrent());
     controller.player.pause();
   }
 
-  private enum Orientation {
-    HORIZONTAL, VERTICAL, UNKNOWN
-  }
 }
